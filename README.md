@@ -9,8 +9,8 @@
 * We are also creating RDS MYSQL Aurora cluster.
 
 ### Prerequisites 
-* AWS CLI configured with proofile right IAM access
-* Terraform Installed
+* AWS CLI configured required IAM access.
+* Terraform Installed on your local workstation.
 
 ### Clone repository
 ```
