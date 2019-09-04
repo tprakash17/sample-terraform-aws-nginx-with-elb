@@ -1,4 +1,4 @@
-#### Terraform Automation - HA contanerized nginx webserver setup and RDS Aurora cluster.
+### Terraform Automation - HA contanerized nginx webserver setup and RDS Aurora cluster.
 
 ### Resources created by this template.
 * This creates a new `VPC` in us-east-1 (default region) with 3 `public subnets`
@@ -18,12 +18,14 @@ $ git clone https://github.com/tprakash17/sample-terraform-aws-nginx-with-elb.gi
 cd sample-terraform-aws-nginx-with-elb
 ```
 
-## Run the setup - create AWS resources
+## Setup 
+
+### Initialize terraform
 ```
 $ terraform init
 ```
 
-## Dry run - terrafrom plan
+### dry-run
 ```
 $ terraform plan
 
@@ -71,7 +73,7 @@ rds_cluster_address = testing-aurora-cluster.cluster-*********.us-east-1.rds.ama
 
 If everything looks ok during `terraform plan` then apply real changes using `terraform apply`
 
-## Apply terraform 
+### Apply terraform 
 ```
 $ terraform apply
 ```
