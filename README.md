@@ -1,10 +1,10 @@
 #### Terraform Automation - HA contanerized nginx webserver setup and RDS Aurora cluster.
 
-## Prerequisites 
+### Prerequisites 
 * AWS CLI configured with proofile right IAM access
 * Terraform Installed
 
-## Clone Repo
+### Clone repository
 ```
 $ git clone https://github.com/tprakash17/sample-terraform-aws-nginx-with-elb.git
 cd sample-terraform-aws-nginx-with-elb
@@ -63,7 +63,7 @@ rds_cluster_address = testing-aurora-cluster.cluster-*********.us-east-1.rds.ama
 
 Note - Above will create following resources.
 
-* This creates a `VPC` in us-east-1 (default region) with 3 `public subnets`
+* This creates a new `VPC` in us-east-1 (default region) with 3 `public subnets`
 * AWS autoscaling group with min-max 2 instances for testing HA across availability zones.
 * This also creates the ELB and register it with ASG instances.
 * nginx docker container is created - part of `user_data` script supplied to each instance.
