@@ -55,17 +55,22 @@ Terraform will perform the following actions:
 ...
 ...
 ...
+Outputs:
+
+elb_dns_name = hiver-test-elb-*******.us-east-1.elb.amazonaws.com
+rds_cluster_address = testing-aurora-cluster.cluster-*********.us-east-1.rds.amazonaws.com
 ```
 
 Note - Above will create following resources.
-* This created `VPC` with 3 `public subnets`
-* AWS autoscaling group with min-max 2 instances.
+
+* This creates a `VPC` in us-east-1 (default region) with 3 `public subnets`
+* AWS autoscaling group with min-max 2 instances for testing HA across availability zones.
 * This also creates the ELB and register it with ASG instances.
 * nginx docker container is created - part of `user_data` script supplied to each instance.
 * We are also creating RDS MYSQL Aurora cluster.
 
 ## Access
-Once setup is done, you can hit the ELB endpoint and you should see the sample response in your browser or from CLI.
+Once setup is done, you will see the `elb_dns_name` configured as a part of output. you can hit `elb_dns_name` in your browser and you should see the sample response or you can access `elb_dns_name` from CLI as well.
 
 `while true; do curl hiver-test-elb-********.us-east-1.elb.amazonaws.com; done`
 
