@@ -5,7 +5,7 @@
 * AWS autoscaling group with min-max 2 instances for testing HA across availability zones.
 * This also creates separate security_groups for `instances` and `ELB`. 
 * This also creates the ELB and register it with ASG instances.
-* nginx docker container is created - part of `user_data` script supplied to each instance.
+* nginx docker container is created - part of `user_data` script supplied to each instance belong to ASG.
 * We are also creating RDS MYSQL Aurora cluster.
 
 ### Prerequisites 
