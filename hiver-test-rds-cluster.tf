@@ -1,27 +1,4 @@
 ########################
-## Variables
-########################
-
-variable "environment_name" {
-    default = "testing"
-    description = "The name of the environment"
-}
-
-variable "rds_master_username" {
-  default = "rdsuser"
-  description = "Enter RDS master username"
-}
-
-variable "rds_master_password" {
-  description = "Enter DB master password"
-}
-
-variable "aurora_database_name" {
-  default = "testrds"
-  description = "Enter DB name"
-}
-
-########################
 ## Cluster
 ########################
 

@@ -21,3 +21,26 @@ variable "public_subnets" {
     type    = "list"
     default = ["10.12.0.0/22", "10.12.4.0/22", "10.12.8.0/22"]
 }
+
+########################
+## RDS aurora DB Variables
+########################
+
+variable "environment_name" {
+    default = "testing"
+    description = "The name of the environment"
+}
+
+variable "rds_master_username" {
+  default = "rdsuser"
+  description = "Enter RDS master username"
+}
+
+variable "rds_master_password" {
+  description = "Enter DB master password"
+}
+
+variable "aurora_database_name" {
+  default = "testrds"
+  description = "Enter DB name"
+}

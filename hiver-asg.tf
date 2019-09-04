@@ -47,10 +47,10 @@ resource "aws_launch_configuration" "hiver-lc" {
 
 resource "aws_autoscaling_group" "hiver-asg" {
   #depends_on 	       = [aws_rds_cluster.aurora_cluster]
-  desired_capacity     = 1
+  desired_capacity     = 2
   launch_configuration = "${aws_launch_configuration.hiver-lc.id}"
-  max_size             = 1
-  min_size             = 1
+  max_size             = 2
+  min_size             = 2
   name                 = "hiver-asg"
   load_balancers       = ["${aws_elb.hiver-elb.name}"]
   vpc_zone_identifier  = ["${aws_subnet.hiver-demo.0.id}"]
