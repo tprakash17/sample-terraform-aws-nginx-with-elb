@@ -1,5 +1,13 @@
 #### Terraform Automation - HA contanerized nginx webserver setup and RDS Aurora cluster.
 
+### Resources created by this template.
+* This creates a new `VPC` in us-east-1 (default region) with 3 `public subnets`
+* AWS autoscaling group with min-max 2 instances for testing HA across availability zones.
+* This also creates separate security_groups for `instances` and `ELB`. 
+* This also creates the ELB and register it with ASG instances.
+* nginx docker container is created - part of `user_data` script supplied to each instance.
+* We are also creating RDS MYSQL Aurora cluster.
+
 ### Prerequisites 
 * AWS CLI configured with proofile right IAM access
 * Terraform Installed
@@ -61,16 +69,15 @@ elb_dns_name = hiver-test-elb-*******.us-east-1.elb.amazonaws.com
 rds_cluster_address = testing-aurora-cluster.cluster-*********.us-east-1.rds.amazonaws.com
 ```
 
-Note - Above will create following resources.
+If everything looks ok during `terraform plan` then apply real changes using `terraform apply`
 
-* This creates a new `VPC` in us-east-1 (default region) with 3 `public subnets`
-* AWS autoscaling group with min-max 2 instances for testing HA across availability zones.
-* This also creates the ELB and register it with ASG instances.
-* nginx docker container is created - part of `user_data` script supplied to each instance.
-* We are also creating RDS MYSQL Aurora cluster.
+## Apply terraform 
+```
+$ terraform apply
+```
 
 ## Access
-Once setup is done, you will see the `elb_dns_name` configured as a part of output. you can hit `elb_dns_name` in your browser and you should see the sample response or you can access `elb_dns_name` from CLI as well.
+Once `terraform apply` is `successful`, you will see the `elb_dns_name` configured as a part of output. you can hit `elb_dns_name` in your browser and should see the sample response from nginx container deployed or you can access `elb_dns_name` from CLI as well as given below.
 
 `while true; do curl hiver-test-elb-********.us-east-1.elb.amazonaws.com; done`
 
